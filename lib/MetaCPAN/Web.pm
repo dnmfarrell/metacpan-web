@@ -10,6 +10,7 @@ use Catalyst qw/
     Static::Simple
     Authentication
     +MetaCPAN::Role::Fastly::Catalyst
+    ActionPaths
     /, '-Log=warn,error,fatal';
 use Log::Log4perl::Catalyst;
 

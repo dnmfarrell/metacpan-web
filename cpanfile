@@ -6,6 +6,7 @@ requires 'Catalyst::Action::RenderView';
 requires 'Catalyst::Authentication::Store::Proxy', '0.0.1';
 requires 'Catalyst::Authentication::User';
 requires 'Catalyst::Model';
+requires 'Catalyst::Plugin::ActionPaths';
 requires 'Catalyst::Plugin::Authentication';
 requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Static::Simple';
