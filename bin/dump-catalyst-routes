@@ -1,0 +1,27 @@
+#!/usr/bin/env perl
+use v5.16;
+use Cwd;
+use File::Basename;
+use File::Spec;
+
+my $root_dir;
+BEGIN {
+  my $bin_dir = File::Basename::dirname(__FILE__);
+  $root_dir = Cwd::abs_path(File::Spec->catdir($bin_dir, File::Spec->updir));
+}
+use lib "$root_dir/local/lib/perl5"; # carton installed deps
+use lib "$root_dir/lib";             # root application dir
+use Catalyst::Test 'MetaCPAN::Web';
+
+my($res, $c) = ctx_request('/');
+
+for (@{$c->get_action_paths}) {
+  say join "\t", $_->{class}, $_->{name}, $_->{path};
+}
+
+=head1 NAME
+
+dump-controller-routes - print a tab-separated list of Controllers, methods and
+the URIs they respond to
+
+=cut
